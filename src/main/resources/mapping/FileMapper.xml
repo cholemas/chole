@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.file_demo.demo.service.FileService">
+ <!--column指的是数据库-->
+    <resultMap id="BaseResultMap" type="com.file_demo.demo.entity.File">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="date" jdbcType="DATE" property="date" />
+        <result column="size" jdbcType="BIGINT" property="size" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="mapping" jdbcType="VARCHAR" property="mapping" />
+    </resultMap>
+
+    <insert id="save" parameterType="com.file_demo.demo.entity.File"  keyProperty="id" useGeneratedKeys="true">
+        insert into file (name ,date,size ,type ) values (#{name},#{date},#{size},#{type});
+    </insert>
+
+    <select id="findByName" resultType="com.file_demo.demo.entity.File">
+        select * from file where name like concat('%',#{name},'%');
+    </select>
+    <delete id="deleteByName" parameterType="com.file_demo.demo.entity.File">
+        delete from file where name=#{name};
+    </delete>
+
+</mapper>
+
+
