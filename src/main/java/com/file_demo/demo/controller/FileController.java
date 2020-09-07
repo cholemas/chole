@@ -127,5 +127,8 @@ public class FileController {
         Map<String, String> dataMap = new HashMap<>(2);
         return Result.success("操作成功", dataMap);
     }
-
+    @GetMapping("/")
+    public Result test(){
+        return Result.success("查询成功",null);
+    }
 }
