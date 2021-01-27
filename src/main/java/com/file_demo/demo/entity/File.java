@@ -14,7 +14,7 @@ public class File {
    //文件名称
     private String name;
     //文件类型
-    private String type;
+    private String typeName;
     // 文件大小
     private Integer size;
     //上传时间
