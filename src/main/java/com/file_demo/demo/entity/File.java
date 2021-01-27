@@ -23,4 +23,6 @@ public class File {
    // private String mapping;
 
     private transient byte[] body;
+
+    private String logId;
 }
